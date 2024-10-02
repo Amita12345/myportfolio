@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br><section id="ContactMe" class="contactsec">
+        <br> <div>
+             <br><h2>Contact <span style="color: aqua;">Me</span></h2>
+         </div>
+     </section>
+     <section class="contact">
+         <div id="leftc">
+             <h2>Drop me a message!</h2><br>
+             <p>You can contact me using below details!</p>
+             <p><b>Or</b></p>
+             <p>Just fill that form and hit that send button</p><br>
+             <table>
+                 <tr>
+                     <th><img src="img/location-removebg-preview.png" class="contactinfo" alt=""></th>
+                     <th>
+                         <p> &nbsp;&nbsp;Dighori, Nagpur,Maharsahtra</p>
+                     </th>
+                 </tr>
+                 <tr>
+                     <td><img src="img/contact-removebg-preview.png" class="contactinfo" alt=""> </td>
+                     <td>
+                         <p>&nbsp;&nbsp;+91&nbsp;&nbsp;8975055942</p>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td><img src="img/mail-removebg-preview.png" class="contactinfo" alt=""> </td>
+                     <td>
+                         <p>&nbsp;&nbsp;amitabante045@gmail.com</p>
+                     </td>
+                 </tr>
+             </table>
+         </div>
+
+         <div id="rightc">
+             <form id="registrationForm" class="form" onsubmit="return validateForm()" action="thanks.html">
+
+                 <!-- <h2 style="text-align:center;">Fill Details</h2> -->
+                 <label for="Name"><b
+                         style="font-size: large; font-family: 'Times New Roman', Times, serif;">Name:</b></label>
+                 <input type="text" id="Name" name="Name"
+                     style="border-radius: 5px; width: 200px; height: 30px; font-family: 'Times New Roman', Times, serif; font-size: large;"
+                     placeholder="Ex: Anuj"><br><br>
+
+                 <br><label for="email"><b
+                         style="font-size: large; font-family: 'Times New Roman', Times, serif;">E-mail:</b></label>
+                 <input type="email" id="email" name="email"
+                     style="border-radius: 5px; width: 200px; height: 30px; font-family: 'Times New Roman', Times, serif; font-size: large;"
+                     placeholder="Ex:names@domain.com"><br><br>
+
+                 <br><label for="mobileNumber"><b
+                         style="font-size: large; font-family: 'Times New Roman', Times, serif;">Mobile
+                         Number:</b></label>
+                 <input type="number" id="mobile" name="mobileNumber"
+                     style="border-radius: 5px; width: 200px; height: 30px; font-family: 'Times New Roman', Times, serif; font-size: large;"
+                     placeholder="Ex: 8498954931"><br><br>
+
+                 <label for="message"><b
+                         style="font-size: large; font-family: 'Times New Roman', Times, serif;">Message:</b></label>
+                 <!-- <input type="text" id="address" name="address" required><br><br> -->
+                 <textarea name="message" id="msg" cols="45" rows="3"
+                     style=" border: 2px solid black; border-radius: 10px; font-family: 'Times New Roman', Times, serif; font-size: large;"></textarea><br><br>
+
+                 <div style="text-align: center;">
+                     <button onmouseover="mousefun(this)" onmouseout="mouseoutfun(this)" type="submit" id="sbmt"
+                         style="border-radius:10px; font-family: 'Times New Roman', Times, serif; font-size: large;">Send
+                         →</button>
+                 </div>
+             </form>
+         </div>
+     </section>
+     <script>
+        function validateForm() {
+            let Name = document.getElementById("Name").value;
+            let message = document.getElementById("msg").value;
+            let email = document.getElementById("email").value;
+            let mob = document.getElementById("mobile").value;
+
+            let namePattern = /^[a-zA-Z]+$/;
+            let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            // let mobilePattern = /^\d{10}$/;
+
+            if (Name === "") {
+                if (!namePattern.test(Name)) {
+                    alert("Invalid Name");
+                    return false;
+                }
+            }
+
+            if ((email.includes('@') == false) || (email.endsWith('.com') == false)) {
+                alert("Invalid E-mail ID");
+                return false;
+            }
+
+            if (!emailPattern.test(email)) {
+                alert("Invalid E-mail");
+                return false;
+            }
+
+            if (mob.length < 10) {
+                alert("Invalid Mobile Number");
+                return false;
+            }
+            if (message === "") {
+                alert("Message cannot be empty");
+                return false;
+            }
+
+            else {
+                return true;
+            }
+        }
+        function mousefun(obj) {
+            obj.innerHTML = "Click";
+        }
+        function mouseoutfun(obj) {
+            obj.innerHTML = "Send →";
+        }
+    </script>
+</body>
+</html>
